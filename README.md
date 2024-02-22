@@ -1,7 +1,7 @@
-Files Details:
+# File Structure:
 
 
-Session5
+## The school of AI Assignments:
 
 |--model.py
 
@@ -11,11 +11,11 @@ Session5
 
 |--README.md
 
-model.py: Where the model architecture code is kept.
+### model.py: Where the model architecture code is kept.
 
-utils.py: All necessary helpful functions and code like data download, transform, train and test logic etc. is kept.
+### utils.py: All necessary helpful functions and code like data download, transform, train and test logic etc. is kept.
 
-S5.ipynb: Jupyter Notebook file where main training on the given epochs is done and all others necessary modules of utils.py and model.py is called in main loop.
+### S5.ipynb: Jupyter Notebook file where main training on the given epochs is done and all others necessary modules of utils.py and model.py is called in main loop.
 
 
 
