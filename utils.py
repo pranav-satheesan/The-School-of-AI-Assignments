@@ -3,9 +3,19 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
+import matplotlib.pyplot as plt
 
 
 from tqdm import tqdm
+
+
+# Data to plot accuracy and loss graphs
+train_losses = []
+test_losses = []
+train_acc = []
+test_acc = []
+
+test_incorrect_pred = {'images': [], 'ground_truths': [], 'predicted_vals': []}
 
 def GetCorrectPredCount(pPrediction, pLabels):
   return pPrediction.argmax(dim=1).eq(pLabels).sum().item()
@@ -64,13 +74,18 @@ def test(model, device, test_loader, criterion):
     print('Test set: Average loss: {:.4f}, Accuracy: {}/{} ({:.2f}%)\n'.format(
         test_loss, correct, len(test_loader.dataset),
         100. * correct / len(test_loader.dataset)))
+    
 
-fig, axs = plt.subplots(2,2,figsize=(15,10))
-axs[0, 0].plot(train_losses)
-axs[0, 0].set_title("Training Loss")
-axs[1, 0].plot(train_acc)
-axs[1, 0].set_title("Training Accuracy")
-axs[0, 1].plot(test_losses)
-axs[0, 1].set_title("Test Loss")
-axs[1, 1].plot(test_acc)
-axs[1, 1].set_title("Test Accuracy")
+
+
+def loss_plot():
+  fig, axs = plt.subplots(2,2,figsize=(15,10))
+  axs[0, 0].plot(train_losses)
+  axs[0, 0].set_title("Training Loss")
+  axs[1, 0].plot(train_acc)
+  axs[1, 0].set_title("Training Accuracy")
+  axs[0, 1].plot(test_losses)
+  axs[0, 1].set_title("Test Loss")
+  axs[1, 1].plot(test_acc)
+  axs[1, 1].set_title("Test Accuracy")
+  plt.show()
