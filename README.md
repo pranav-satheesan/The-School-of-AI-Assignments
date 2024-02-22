@@ -3,13 +3,13 @@
 
 ## The school of AI Assignments:
 
-/model.py
+- model.py
 
-/utils.py
+- utils.py
 
-/S5.ipynb
+- S5.ipynb
 
-/README.md
+- README.md
 
 ### model.py: Where the model architecture code is kept.
 
